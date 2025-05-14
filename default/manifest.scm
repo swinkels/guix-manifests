@@ -33,8 +33,7 @@
           "stow"
           "tmux"
           "tree"
-          "vim"
-          "zsh"))
+          "vim"))
 
    ;; Emacs
    (list
