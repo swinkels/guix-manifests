@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -ex
+
+# I use the same user(name) on my host machine as in the dev(elopment)
+# container. That means that $HOME on the host is equal to $HOME in the dev
+# container.
+
+# When you start a Guix container and you don't specify a command to run, it
+# places you in an interactive, non-login Bash session. On startup, this session
+# automatically evaluates the (container) file $HOME/.shrc to drop me in a Zsh
+# instead (after it has updated the path).
+#
+# Because it's a non-login Bash shell, it will not evalutate $HOME/.profile but
+# it will read the file pointed to by $ENV. We set it here and let Guix pass it
+# on to the container. Thanks to https://unix.stackexchange.com/a/340840/632947
+
+export ENV=$HOME/.shrc
+
+EMACS_SPACEMACS_DIR=$HOME/repos/swinkels/emacs-spacemacs/emacs-29.4-spacemacs-20241225
+
+$HOME/.guix-extra/baringa/guix/bin/guix shell \
+    --container --emulate-fhs --network \
+    --preserve='^ENV$' \
+    --preserve='^LANG$' \
+    --preserve='^TERM$' \
+    --no-cwd --share=$HOME/tmp/guix-container-homes/baringa=$HOME \
+    --share=$EMACS_SPACEMACS_DIR/.emacs.d=$HOME/.emacs.d \
+    --share=$EMACS_SPACEMACS_DIR/.spacemacs.d=$HOME/.spacemacs.d \
+    --expose=$HOME/.gitconfig \
+    --expose=$HOME/.gitignore \
+    --expose=$HOME/.oh-my-zsh \
+    --expose=$HOME/.tmux.conf \
+    --expose=$HOME/.zshrc \
+    --manifest=manifest.scm
+
+# Options --share and --expose both make directories and files on the host
+# accessible in the container. --share allows read-write access in the container
+# whereas --expose only allows read access.
