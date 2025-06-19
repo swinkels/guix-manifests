@@ -7,6 +7,7 @@
   "coreutils"
   "curl"
   "direnv"
+  "dotnet"  ;; required to authenticate against Azure Artifacts Feeds
   "emacs"
   "emacs-all-the-icons"
   "font-adobe-source-code-pro"
