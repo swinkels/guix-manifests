@@ -29,9 +29,11 @@
    ;; base packages
    (specifications->packages
     (list "direnv"
+	  "plantuml"
           "ripgrep"
           "stow"
           "tmux"
+	        "tmux-plugin-resurrect"
           "tree"
           "vim"))
 
@@ -45,4 +47,5 @@
 
    ;; Python
    (list
-    (first (lookup-inferior-packages inferior "python" "3.11.11"))))))
+    (first (lookup-inferior-packages inferior "python" "3.11.11"))
+    (first (lookup-inferior-packages inferior "zlib"))))))

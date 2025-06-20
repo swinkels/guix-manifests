@@ -16,6 +16,7 @@
   "fontconfig"
   "fzf"
   "gawk"
+  "gcc-toolchain" ;; required by the ruff LSP server
   "git"
   "grep"
   "gzip"
