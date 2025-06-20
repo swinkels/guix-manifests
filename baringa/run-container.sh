@@ -21,6 +21,7 @@ EMACS_SPACEMACS_DIR=$HOME/repos/swinkels/emacs-spacemacs/emacs-29.4-spacemacs-20
 
 $HOME/.guix-extra/baringa/guix/bin/guix shell \
     --container --emulate-fhs --network \
+    --preserve='^COLORTERM$' \
     --preserve='^ENV$' \
     --preserve='^LANG$' \
     --preserve='^TERM$' \

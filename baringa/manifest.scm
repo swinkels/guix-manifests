@@ -20,6 +20,7 @@
   "inetutils"  ;; provides "hostname"
   "less"
   "man-db"  ;; provides "man"
+  "ncurses"  ;; provides terminfo database, which describes capabilities of terminals
   "nss-certs"
   "procps"  ;; provides "ps"
   "python"
