@@ -6,10 +6,12 @@
   "bash"
   "coreutils"
   "curl"
+  "diffutils"
   "direnv"
   "dotnet"  ;; required to authenticate against Azure Artifacts Feeds
   "emacs"
   "emacs-all-the-icons"
+  "findutils"
   "font-adobe-source-code-pro"
   "fontconfig"
   "fzf"
@@ -35,6 +37,7 @@
   "tmux-plugin-resurrect"
   "util-linux"  ;; provides "more", literally ;)
   "vim"
+  "xclip"
   "wget"
   "which"
   "zlib"
