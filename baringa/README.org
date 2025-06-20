@@ -1,0 +1,15 @@
+The following commands, which need to be executed /in a running container/,
+install uv, multiple Python versions and several Python packages:
+#+begin_src sh :noeval
+curl -LsSf https://astral.sh/uv/0.7.9/install.sh | sh
+
+uv python install 3.11
+uv python pin 3.11 --global
+uv python install 3.12
+uv python install 3.13
+
+uv tool install nox@2025.5.1
+uv tool install poetry@2.1.3
+uv tool install python-lsp-server@1.12.2
+uv tool install keyring@25.6.0 --with artifacts-keyring
+#+end_src

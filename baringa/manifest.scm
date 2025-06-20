@@ -26,10 +26,6 @@
   "ncurses"  ;; provides terminfo database, which describes capabilities of terminals
   "nss-certs"
   "procps"  ;; provides "ps"
-  "python"
-  "python:tk"
-  "python-lsp-server"
-  "python-nox"
   "ripgrep"
   "sed"
   "tar"
