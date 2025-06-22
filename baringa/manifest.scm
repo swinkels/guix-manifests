@@ -21,10 +21,13 @@
   "grep"
   "gzip"
   "inetutils"  ;; provides "hostname"
+  "keychain"
   "less"
+  "make"
   "man-db"  ;; provides "man"
   "ncurses"  ;; provides terminfo database, which describes capabilities of terminals
   "nss-certs"
+  "openssh"
   "procps"  ;; provides "ps"
   "ripgrep"
   "sed"

@@ -28,11 +28,9 @@ $HOME/.guix-extra/baringa/guix/bin/guix shell \
     --no-cwd --share=$HOME/tmp/guix-container-homes/baringa=$HOME \
     --share=$EMACS_SPACEMACS_DIR/.emacs.d=$HOME/.emacs.d \
     --share=$EMACS_SPACEMACS_DIR/.spacemacs.d=$HOME/.spacemacs.d \
-    --expose=$HOME/.gitconfig \
-    --expose=$HOME/.gitignore \
+    --share=provisioning=$HOME/provisioning \
+    --expose=$HOME/.ssh \
     --expose=$HOME/.oh-my-zsh \
-    --expose=$HOME/.tmux.conf \
-    --expose=$HOME/.zshrc \
     --manifest=manifest.scm
 
 # Options --share and --expose both make directories and files on the host

@@ -1,9 +1,12 @@
 CONTAINER_HOME := ${HOME}/tmp/guix-container-homes/baringa
 
-.PHONY: all sync-files
+.PHONY: all nothing
 
-all: sync-files
+all: nothing
 
-sync-files:
-	# rsync configuration files to the container
-	rsync -Cavz --files-from=rsync-files-from.txt . $(CONTAINER_HOME)
+nothing:
+	# All further configuration has to be done from inside the container. In the
+	# container, do the following:
+	#
+	# - cd ~/provisioning
+	# - make
