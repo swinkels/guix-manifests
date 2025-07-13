@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
+
+echo "Run Guix container for Baringa development"
 
 # I use the same user(name) on my host machine as in the dev(elopment)
 # container. That means that $HOME on the host is equal to $HOME in the dev
@@ -17,20 +19,31 @@ set -ex
 
 export ENV=$HOME/.shrc
 
+CONTAINER_HOME=$HOME/tmp/guix-container-homes/baringa
+if [[ ! -d $CONTAINER_HOME ]]; then
+    echo "Create container home directory at $CONTAINER_HOME"
+    mkdir -p $CONTAINER_HOME
+fi;
+
+WORKSPACE=$HOME/repos/baringa
+echo "Share $WORKSPACE as ~/workspace directory"
+
 EMACS_SPACEMACS_DIR=$HOME/repos/swinkels/emacs-spacemacs/emacs-29.4-spacemacs-20241225
 
+echo "Start guix shell..."
 $HOME/.guix-extra/baringa/guix/bin/guix shell \
     --container --emulate-fhs --network \
     --preserve='^COLORTERM$' \
     --preserve='^ENV$' \
     --preserve='^LANG$' \
     --preserve='^TERM$' \
-    --no-cwd --share=$HOME/tmp/guix-container-homes/baringa=$HOME \
+    --no-cwd --share=$CONTAINER_HOME=$HOME \
+    --expose=$HOME/.ssh \
+    --expose=$HOME/.oh-my-zsh \
     --share=$EMACS_SPACEMACS_DIR/.emacs.d=$HOME/.emacs.d \
     --share=$EMACS_SPACEMACS_DIR/.spacemacs.d=$HOME/.spacemacs.d \
     --share=provisioning=$HOME/provisioning \
-    --expose=$HOME/.ssh \
-    --expose=$HOME/.oh-my-zsh \
+    --share=$WORKSPACE=$HOME/workspace \
     --manifest=manifest.scm
 
 # Options --share and --expose both make directories and files on the host
