@@ -1,0 +1,26 @@
+The default profile is intended for use with your main Guix profile. Use the
+following command to install it:
+#+begin_src shell
+guix package --manifest=default/manifest.scm
+#+end_src
+
+The Baringa profile requires you to use the Guix version for the channels
+specified for that profile. Section [[https://guix.gnu.org/cookbook/en/html_node/Reproducible-profiles.html][Reproducible profiles]] of the Guix cookbook
+describes how to do that: install that Guix version to ~$HOME/.guix-extra~ and
+then use that version for subsequent Guix commands.
+
+The next snippet shows the commands to create a Guix shell for the Baringa
+profile:
+#+begin_src shell
+GUIX_EXTRA=$HOME/.guix-extra
+
+# install the specified Guix version
+
+mkdir -p "$GUIX_EXTRA"/baringa
+guix pull --channels=baringa/channel-specs.scm --profile="$GUIX_EXTRA/baringa/guix"
+
+# install the packages for a Baringa shell
+
+mkdir -p "$GUIX_EXTRA_PROFILES/baringa"
+"$GUIX_EXTRA"/baringa/guix/bin/guix shell --manifest=/path/to/manifest.scm
+ #+end_src
