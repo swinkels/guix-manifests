@@ -29,13 +29,16 @@
    ;; base packages
    (specifications->packages
     (list "direnv"
+          "fzf"
 	  "plantuml"
           "ripgrep"
           "stow"
           "tmux"
-	        "tmux-plugin-resurrect"
+          "tmux-plugin-resurrect"
           "tree"
-          "vim"))
+          "vim"
+          "xclip"
+          "zsh"))
 
    ;; Emacs
    (list
