@@ -1,3 +1,18 @@
+This directory contains the files to recreate the Python development container
+for one of my customers, Baringa.
+
+First, install the correct Guix version[fn:1]:
+#+begin_src sh :noeval
+GUIX_EXTRA=$HOME/.guix-extra
+
+mkdir -p "$GUIX_EXTRA"/baringa
+guix pull --channels=channel-specs.scm --profile="$GUIX_EXTRA/baringa/guix"
+#+end_src
+This only has to be done once.
+
+Bash script ~./run-container.sh~ creates and starts the Python development
+container.
+
 The following commands, which need to be executed /in a running container/,
 install uv, multiple Python versions and several Python packages:
 #+begin_src sh :noeval
@@ -8,8 +23,14 @@ uv python pin 3.11 --global
 uv python install 3.12
 uv python install 3.13
 
-uv tool install nox@2025.5.1
-uv tool install poetry@2.1.3
-uv tool install python-lsp-server@1.12.2
-uv tool install keyring@25.6.0 --with artifacts-keyring
+uv tool install nox@2025.5.1 --python 3.11
+uv tool install poetry@2.1.3 --python 3.11
+uv tool install python-lsp-server@1.12.2 --python 3.11
+uv tool install keyring@25.6.0 --with artifacts-keyring --python 3.11
 #+end_src
+This only has to be done once.
+
+* Footnotes
+
+[fn:1] For details, see the section on [[https://guix.gnu.org/cookbook/en/html_node/Reproducible-profiles.html][reproducible profiles]] in the Guix
+cookbook.

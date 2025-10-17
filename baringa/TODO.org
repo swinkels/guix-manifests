@@ -1,0 +1,11 @@
+- [ ] use proper credential manager
+  - [ ] possibly ~keepassxc-cli~?
+
+** [2025-06-22 Sun]
+
+- [-] configure SSH
+  - [X] install ssh
+  - [X] /expose/ $HOME/.ssh from host
+  - [X] automate use of SSH agent
+
+I used ~keychain~ to automate the use of the SSH agents.
