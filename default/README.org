@@ -1,0 +1,5 @@
+The default profile is intended for use with my main Guix profile. Use the
+following command to install the packages specified by the manifest:
+#+begin_src shell
+guix package --manifest=default/manifest.scm
+#+end_src
