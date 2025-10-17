@@ -1,0 +1,6 @@
+This profile contains Python 3.11. I created this profile when I investigated
+how to install an "older" Python version that was not available in the main Guix
+channel anymore.
+
+The channel specification refers to an earlier commit of the main channel that
+still provided that Python version.
