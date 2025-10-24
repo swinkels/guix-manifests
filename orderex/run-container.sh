@@ -36,6 +36,7 @@ $HOME/.guix-extra/orderex/guix/bin/guix shell \
     --preserve='^COLORTERM$' \
     --preserve='^ENV$' \
     --preserve='^LANG$' \
+    --preserve='^LC_TIME$' \
     --preserve='^TERM$' \
     --no-cwd --share=$CONTAINER_HOME=$HOME \
     --expose=$HOME/.ssh \

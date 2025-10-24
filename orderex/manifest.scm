@@ -36,6 +36,7 @@
   "tree"
   "tmux"
   "tmux-plugin-resurrect"
+  "tzdata"  ;; time zone database to be able to set the timezone to "Europe/Amsterdam"
   "util-linux"  ;; provides "more", literally ;)
   "vim"
   "xclip"
