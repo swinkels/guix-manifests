@@ -48,9 +48,4 @@
     (specification->package "font-adobe-source-code-pro"))
 
    ;; email packages
-   (specifications->packages (list "isync" "mu"))
-
-   ;; Python
-   (list
-    (first (lookup-inferior-packages inferior "python" "3.11.11"))
-    (first (lookup-inferior-packages inferior "zlib"))))))
+   (specifications->packages (list "isync" "mu")))))
