@@ -28,7 +28,9 @@
 
    ;; base packages
    (specifications->packages
-    (list "direnv"
+    (list "aspell"
+	  "aspell-dict-en"
+	  "direnv"
           "fzf"
 	  "plantuml"
           "ripgrep"
