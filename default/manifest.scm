@@ -11,11 +11,16 @@
          (name 'guix)
          (url "https://git.savannah.gnu.org/git/guix.git")
          ;; commit date: May 9, 2025
-         (commit "2e1ead7c8b449b58d571d8f16c1586b675c13ab4"))))
+         (commit "2e1ead7c8b449b58d571d8f16c1586b675c13ab4")
+         (introduction
+          (make-channel-introduction
+           "9edb3f66fd807b096b48283debdcddccfea34bad"
+           (openpgp-fingerprint
+            "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))))
 
 (define inferior
-  ;; An inferior representing the above revision. We use it to pin Emacs (to
-  ;; 29.4) and Python (to 3.11.11).
+  ;; An inferior representing the above revision. We use it to pin Emacs to
+  ;; 29.4.
   (inferior-for-channels channels))
 
 (packages->manifest
@@ -29,10 +34,10 @@
    ;; base packages
    (specifications->packages
     (list "aspell"
-	  "aspell-dict-en"
-	  "direnv"
+          "aspell-dict-en"
+          "direnv"
           "fzf"
-	  "plantuml"
+          "plantuml"
           "ripgrep"
           "stow"
           "tmux"
