@@ -28,7 +28,7 @@ fi;
 WORKSPACE=$HOME/repos/sodalis/vdparts
 echo "Share $WORKSPACE as ~/workspace directory"
 
-EMACS_SPACEMACS_DIR=$HOME/repos/swinkels/emacs-spacemacs/emacs-29.4-spacemacs-20241225
+EMACS_SPACEMACS_DIR=$HOME/repos/swinkels/emacs-spacemacs/emacs-29.4-spacemacs-20250927
 
 echo "Start guix shell..."
 $HOME/.guix-extra/orderex/guix/bin/guix shell \
