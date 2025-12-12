@@ -44,7 +44,7 @@ $HOME/.guix-extra/orderex/guix/bin/guix shell \
     --share=$EMACS_SPACEMACS_DIR/.emacs.d=$HOME/.emacs.d \
     --share=$EMACS_SPACEMACS_DIR/.spacemacs.d=$HOME/.spacemacs.d \
     --share=provisioning=$HOME/provisioning \
-    --share=$WORKSPACE=$HOME/workspace \
+    --share=$WORKSPACE/orderex-journal=$HOME/workspace/journal \
     --manifest=manifest.scm
 
 
