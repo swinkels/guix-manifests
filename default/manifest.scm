@@ -35,8 +35,10 @@
    (specifications->packages
     (list "aspell"
           "aspell-dict-en"
+          "aspell-dict-nl"
           "direnv"
           "fzf"
+          "ncdu"
           "plantuml"
           "ripgrep"
           "stow"
