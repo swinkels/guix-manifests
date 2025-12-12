@@ -3,6 +3,9 @@
 
 (specifications->manifest
  (list
+  "aspell"
+  "aspell-dict-en"
+  "aspell-dict-nl"
   "bash"
   "coreutils"
   "curl"
