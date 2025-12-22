@@ -19,8 +19,9 @@
             "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))))
 
 (define inferior
-  ;; An inferior representing the above revision. We use it to pin Emacs to
-  ;; 29.4.
+  ;; An inferior representing the above revision. We used it to pin Emacs to
+  ;; 29.4 although now we've just use the Emacs version that the main channel
+  ;; provides. It's still there because we might use it again to pin Emacs.
   (inferior-for-channels channels))
 
 (packages->manifest
@@ -50,9 +51,10 @@
           "zsh"))
 
    ;; Emacs
-   (list
-    (first (lookup-inferior-packages inferior "emacs" "29.4"))
-    (specification->package "font-adobe-source-code-pro"))
+   (specifications->packages (list "emacs" "emacs-vterm" "font-adobe-source-code-pro"))
+   ;; (list
+   ;;  (first (lookup-inferior-packages inferior "emacs" "29.4"))
+   ;;  (specification->package "font-adobe-source-code-pro"))
 
    ;; email packages
    (specifications->packages (list "isync" "mu")))))
