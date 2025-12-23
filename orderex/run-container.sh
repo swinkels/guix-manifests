@@ -37,9 +37,10 @@ $HOME/.guix-extra/orderex/guix/bin/guix shell \
     --preserve='^ENV$' \
     --preserve='^LANG$' \
     --preserve='^LC_TIME$' \
+    --preserve='^SSH_AUTH_SOCK$' \
     --preserve='^TERM$' \
     --no-cwd --share=$CONTAINER_HOME=$HOME \
-    --expose=$HOME/.ssh \
+    --expose=$SSH_AUTH_SOCK \
     --expose=$HOME/.oh-my-zsh \
     --share=$EMACS_SPACEMACS_DIR/.emacs.d=$HOME/.emacs.d \
     --share=$EMACS_SPACEMACS_DIR/.spacemacs.d=$HOME/.spacemacs.d \
@@ -51,3 +52,7 @@ $HOME/.guix-extra/orderex/guix/bin/guix shell \
 # Options --share and --expose both make directories and files on the host
 # accessible in the container. --share allows read-write access in the container
 # whereas --expose only allows read access.
+
+# The host already runs an ssh-agent. To let the container have access to the
+# keys it might have loaded, we expose SSH_AUTH_SOCK and the socket file that it
+# points to.

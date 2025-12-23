@@ -24,7 +24,6 @@
   "grep"
   "gzip"
   "inetutils"  ;; provides "hostname"
-  "keychain"
   "less"
   "make"
   "man-db"  ;; provides "man"
