@@ -34,6 +34,7 @@
   "perl"  ;; turns out magit needs it if you want to modify a commit
   "procps"  ;; provides "ps"
   "ripgrep"
+  "starship"
   "sed"
   "tar"
   "tree"
