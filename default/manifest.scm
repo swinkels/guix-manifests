@@ -42,6 +42,7 @@
           "ncdu"
           "plantuml"
           "ripgrep"
+          "starship"
           "stow"
           "tmux"
           "tmux-plugin-resurrect"
