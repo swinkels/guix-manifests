@@ -2,8 +2,9 @@ This repo contains the files required to (re)build my Guix profiles:
 
 - default :: specifies the main Guix profile of my main workstation. It comes
   without Guix channel specification so it is not reproducible.
-- baringa :: specifies the Python development container I used for a my
-  customers.
+- baringa :: specifies the Python development container I used for a customer.
+- baringa-wsl :: specifies the Python development environment in WSL I used for
+  a customer.
 - python-3.11 :: specifies the content of a Guix profile for Python 3.11.
 
 Each subdirectory contains a README that describes how to install that profile.
