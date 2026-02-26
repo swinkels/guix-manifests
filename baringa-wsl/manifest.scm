@@ -9,13 +9,19 @@
 (define channels
   (list (channel
          (name 'guix)
-         (url "https://git.guix.gnu.org/guix.git")
-         ;; commit date: March 15, 2025
-         (commit "204568d027e25d3f2c09ad4c335e503ae3ed8c52"))))
+         (url "https://git.savannah.gnu.org/git/guix.git")
+         ;; commit date: May 9, 2025
+         (commit "2e1ead7c8b449b58d571d8f16c1586b675c13ab4")
+         (introduction
+          (make-channel-introduction
+           "9edb3f66fd807b096b48283debdcddccfea34bad"
+           (openpgp-fingerprint
+            "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))))
 
 (define inferior
-  ;; An inferior representing the above revision. We use it to pin Emacs (to
-  ;; 29.4) and Python (to 3.11.11).
+  ;; An inferior representing the above revision. We used it to pin Emacs to
+  ;; 29.4 although now we've just use the Emacs version that the main channel
+  ;; provides. It's still there because we might use it again to pin Emacs.
   (inferior-for-channels channels))
 
 (packages->manifest
@@ -30,14 +36,17 @@
    (specifications->packages
     (list "aspell"
           "aspell-dict-en"
+          "aspell-dict-nl"
           "direnv"
           "fzf"
           "git"
           "git-lfs"
+          "ncdu"
           "ncurses"  ;; provides terminfo database, which describes capabilities of terminals
           "pandoc"
           "plantuml"
           "ripgrep"
+          "starship"
           "stow"
           "tmux"
           "tmux-plugin-resurrect"
@@ -47,9 +56,10 @@
           "zsh"))
 
    ;; Emacs
-   (list
-    (first (lookup-inferior-packages inferior "emacs" "29.4"))
-    (specification->package "font-adobe-source-code-pro"))
+   (specifications->packages (list "emacs" "emacs-vterm" "font-adobe-source-code-pro"))
+   ;; (list
+   ;;  (first (lookup-inferior-packages inferior "emacs" "29.4"))
+   ;;  (specification->package "font-adobe-source-code-pro"))
 
    ;; packages to be able to build API documentation
    (specifications->packages
