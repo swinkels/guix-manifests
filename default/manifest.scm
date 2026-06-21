@@ -9,9 +9,9 @@
 (define channels
   (list (channel
          (name 'guix)
-         (url "https://git.savannah.gnu.org/git/guix.git")
-         ;; commit date: May 9, 2025
-         (commit "2e1ead7c8b449b58d571d8f16c1586b675c13ab4")
+         (url "https://codeberg.org/guix/guix.git")
+         ;; commit date: June 20, 2026
+         (commit "ecd4ab5994c4cfd02414f0b2e86125fdc25fd877")
          (introduction
           (make-channel-introduction
            "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -52,10 +52,10 @@
           "zsh"))
 
    ;; Emacs
-   (specifications->packages (list "emacs" "emacs-vterm" "font-adobe-source-code-pro"))
-   ;; (list
-   ;;  (first (lookup-inferior-packages inferior "emacs" "29.4"))
-   ;;  (specification->package "font-adobe-source-code-pro"))
+   (list
+    (first (lookup-inferior-packages inferior "emacs"))
+    (first (lookup-inferior-packages inferior "emacs-vterm"))
+    (specification->package "font-adobe-source-code-pro"))
 
    ;; email packages
    (specifications->packages (list "isync" "mu")))))
