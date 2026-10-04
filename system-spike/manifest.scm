@@ -33,6 +33,7 @@
   "openssh"
   "perl"  ;; turns out magit needs it if you want to modify a commit
   "procps"  ;; provides "ps"
+  "python"
   "ripgrep"
   "starship"
   "sed"
@@ -43,6 +44,7 @@
   "tmux-plugin-resurrect"
   "tzdata"  ;; time zone database to be able to set the timezone to "Europe/Amsterdam"
   "util-linux"  ;; provides "more", literally ;)
+  "uv"
   "vim"
   "xclip"
   "wget"
