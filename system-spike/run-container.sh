@@ -27,6 +27,13 @@ else
     # if you need to update the profile found, you will have to do that manually
 fi;
 
+if [[ ! -d $CONTAINER_HOME ]]; then
+    echo "Create container directory at $CONTAINER_HOME"
+    mkdir --parents $CONTAINER_HOME
+else
+    echo "Use container directory at $CONTAINER_HOME"
+fi;
+
 # I use the same user(name) on my host machine as in the dev(elopment)
 # container. That means that $HOME on the host is equal to $HOME in the dev
 # container.
