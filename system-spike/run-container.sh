@@ -36,7 +36,7 @@ fi;
 # automatically evaluates the (container) file $HOME/.shrc to drop me in a Zsh
 # instead (after it has updated the path).
 #
-# Because it's a non-login Bash shell, it will not evalutate $HOME/.profile but
+# Because it's a non-login Bash shell, it will not evaluate $HOME/.profile but
 # it will read the file pointed to by $ENV. We set it here and let Guix pass it
 # on to the container. Thanks to https://unix.stackexchange.com/a/340840/632947
 
@@ -53,7 +53,6 @@ $GUIX_CONTAINER_PROFILE/bin/guix shell \
     --preserve='^TERM$' \
     --no-cwd --share=$CONTAINER_HOME=$HOME \
     --expose=$SSH_AUTH_SOCK \
-    --share=provisioning=$HOME/provisioning \
     --manifest=manifest.scm
 
 
